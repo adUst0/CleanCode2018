@@ -48,3 +48,13 @@ bool Date::isValidDate() {
 
     return (day > 0 && day <= maxDays);
 }
+
+int Date::getDay() const {
+    return day;
+}
+int Date::getMonth() const {
+    return month;
+}
+int Date::getYear() const {
+    return year;
+}

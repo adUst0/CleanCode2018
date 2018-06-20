@@ -4,7 +4,7 @@ CFLAGS = -Wall -std=c++11
 SDIR = src
 ODIR = obj
 
-_OBJ = Date.o Main.o
+_OBJ = Date.o Main.o USDateFormatter.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 BIN = Shop.exe
