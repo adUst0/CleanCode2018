@@ -4,6 +4,7 @@
 #include "DateFormatter.h"
 #include "USDateFormatter.h"
 #include "BGDateFormatter.h"
+#include "ISODateFormatter.h"
 
 using namespace std;
 
@@ -53,9 +54,33 @@ void test_BGDateFormatter() {
     }
 }
 
+void test_ISODateFormatter() {
+    std::unique_ptr<DateFormatter> df(new ISODateFormatter());
+
+    Date d(10, 6, 1996);
+    // cout << df->toString(d) << endl;
+
+    if (df->toString(d) == string("1996-06-10")) {
+        cout << "ISODateFormatter::toString() - OK" << endl;
+    }
+    else {
+        cout << "ISODateFormatter::toString() - Fail" << endl;
+    }
+
+    d = df->fromString("1996-06-10");
+    // printf("%02d.%02d.%04d\n", d.getDay(), d.getMonth(), d.getYear());
+    if (d.getDay() == 10 && d.getMonth() == 6 && d.getYear() == 1996) {
+        cout << "ISODateFormatter::fromString() - OK" << endl;
+    }
+    else {
+        cout << "ISODateFormatter::fromString() - Fail" << endl;
+    }
+}
+
 int main() {
     test_USDateFormatter();
     test_BGDateFormatter();
+    test_ISODateFormatter();
 
     return 0;
 }
