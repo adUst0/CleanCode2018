@@ -1,7 +1,7 @@
 #include <iostream>
 #include <memory>
 #include "DateFormatterFactory.h"
-#include "Device.h"
+#include "Printer.h"
 
 using namespace std;
 
@@ -74,19 +74,23 @@ void test_ISODateFormatter() {
     }
 }
 
+void test_Printer() {
+    unique_ptr<Device> printer1(new Printer("HP", 950, Date(27, 8, 2016), Country::BG, true));
+    printer1->print();
+
+    unique_ptr<Device> printer2(new Printer("Lenovo", 1000, Date(27, 8, 2016), Country::US, false));
+    printer2->print();
+
+    unique_ptr<Device> printer3(new Printer("Samsung", 1050, Date(27, 8, 2016), Country::ES, true));
+    printer3->print();
+}
+
 int main() {
     test_USDateFormatter();
     test_BGDateFormatter();
     test_ISODateFormatter();
-
-    // Device device1("HP", 950, Date(27, 8, 2016), Country::BG);
-    // device1.printOwnFields();
-
-    // Device device2("Lenovo", 1000, Date(27, 8, 2016), Country::US);
-    // device2.printOwnFields();
-
-    // Device device3("Samsung", 1050, Date(27, 8, 2016), Country::ES);
-    // device3.printOwnFields();
+    
+    test_Printer();
 
     return 0;
 }

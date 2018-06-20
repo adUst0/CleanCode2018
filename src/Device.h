@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <memory>
 #include "Date.h"
 #include "Country.h"
 #include "DateFormatterFactory.h"
@@ -22,6 +23,6 @@ public:
     virtual double getRating() const = 0; 
 
     void printOwnFields() const;
-    virtual double print() const = 0;
-    virtual Device* clone() const = 0; 
+    virtual void print() const = 0;
+    virtual std::unique_ptr<Device> clone() const = 0; 
 };
