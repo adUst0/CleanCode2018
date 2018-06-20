@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -std=c++11
+CFLAGS = -Wall -std=gnu++0x
 
 SDIR = src
 ODIR = obj

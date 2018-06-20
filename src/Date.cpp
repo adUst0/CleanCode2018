@@ -12,6 +12,12 @@ Date::Date(int day, int month, int year) {
     }
 }
 
+bool Date::operator==(const Date& other) const {
+    return this->day == other.day && 
+        this->month == other.month && 
+        this->year == other.year;
+}
+
 bool Date::isLeapYear() {
     if (year % 4 != 0) {
         return false;
