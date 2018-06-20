@@ -2,6 +2,8 @@
 #include <memory>
 #include "DateFormatterFactory.h"
 #include "Printer.h"
+#include "PC.h"
+#include "Laptop.h"
 
 using namespace std;
 
@@ -85,12 +87,30 @@ void test_Printer() {
     printer3->print();
 }
 
+void test_PC() {
+    unique_ptr<Device> pc1(new PC("Samsung", 1250, Date(6, 12, 2015), Country::BG, "Windows 7", 8, 500));
+    pc1->print();
+
+    unique_ptr<Device> pc2(new PC("Lenovo", 1100, Date(6, 12, 2015), Country::US, "Debian", 8, 1000));
+    pc2->print();
+}
+
+void test_Laptop() {
+    unique_ptr<Device> laptop1(new Laptop("Samsung", 1600, Date(6, 12, 2017), Country::BG, 8, 14));
+    laptop1->print();
+
+    unique_ptr<Device> laptop2(new Laptop("Lenovo", 1800, Date(6, 12, 2017), Country::UNKNOWN, 8, 14.5));
+    laptop2->print();
+}
+
 int main() {
     test_USDateFormatter();
     test_BGDateFormatter();
     test_ISODateFormatter();
     
     test_Printer();
+    test_PC();
+    test_Laptop();
 
     return 0;
 }

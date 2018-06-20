@@ -28,10 +28,11 @@ double Printer::getRating() const {
 
 void Printer::printOwnFields() const {
     using namespace std;
-    cout << "isColored: " << boolalpha << colored << endl;
+    cout << "\tisColored: " << boolalpha << colored << endl;
 }
 
 void Printer::print() const {
+    std::cout << "Printer:" << std::endl;
     Device::printOwnFields();
     printOwnFields();
 }
