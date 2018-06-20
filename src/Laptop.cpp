@@ -35,6 +35,6 @@ void Laptop::print() const {
     printOwnFields();
 }
 
-std::unique_ptr<Device> Laptop::clone() const {
-    return std::unique_ptr<Device>(new Laptop(*this));
+std::shared_ptr<Device> Laptop::clone() const {
+    return std::shared_ptr<Device>(new Laptop(*this));
 }

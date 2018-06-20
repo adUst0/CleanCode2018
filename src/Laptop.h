@@ -17,5 +17,5 @@ public:
     void printOwnFields() const;
     virtual void print() const;
     
-    virtual std::unique_ptr<Device> clone() const; 
+    virtual std::shared_ptr<Device> clone() const; 
 };

@@ -41,6 +41,6 @@ void PC::print() const {
     printOwnFields();
 }
 
-std::unique_ptr<Device> PC::clone() const {
-    return std::unique_ptr<Device>(new PC(*this));
+std::shared_ptr<Device> PC::clone() const {
+    return std::shared_ptr<Device>(new PC(*this));
 }

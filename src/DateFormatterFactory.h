@@ -9,5 +9,5 @@
 class DateFormatterFactory
 {
 public:
-    static std::unique_ptr<DateFormatter> getDateFormatter(Country country);
+    static std::shared_ptr<DateFormatter> getDateFormatter(Country country);
 };

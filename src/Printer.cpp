@@ -37,6 +37,6 @@ void Printer::print() const {
     printOwnFields();
 }
 
-std::unique_ptr<Device> Printer::clone() const {
-    return std::unique_ptr<Device>(new Printer(*this));
+std::shared_ptr<Device> Printer::clone() const {
+    return std::shared_ptr<Device>(new Printer(*this));
 } 

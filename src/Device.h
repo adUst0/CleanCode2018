@@ -24,5 +24,5 @@ public:
 
     void printOwnFields() const;
     virtual void print() const = 0;
-    virtual std::unique_ptr<Device> clone() const = 0; 
+    virtual std::shared_ptr<Device> clone() const = 0; 
 };

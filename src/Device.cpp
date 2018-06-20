@@ -27,7 +27,7 @@ double Device::getPrice() const {
 void Device::printOwnFields() const {
     using namespace std;
     
-    unique_ptr<DateFormatter> dateFormatter = DateFormatterFactory::getDateFormatter(country);
+    shared_ptr<DateFormatter> dateFormatter = DateFormatterFactory::getDateFormatter(country);
 
     cout << "\tMaker: " << maker << endl;
     cout << "\tPrice: " << price << " BGN" << endl;
