@@ -1,15 +1,12 @@
 #include <iostream>
 #include <memory>
-#include "Date.h"
-#include "DateFormatter.h"
-#include "USDateFormatter.h"
-#include "BGDateFormatter.h"
-#include "ISODateFormatter.h"
+#include "DateFormatterFactory.h"
+#include "Device.h"
 
 using namespace std;
 
 void test_USDateFormatter() {
-    std::unique_ptr<DateFormatter> df(new USDateFormatter());
+    std::unique_ptr<DateFormatter> df = DateFormatterFactory::getDateFormatter(Country::US);
 
     Date d(10, 6, 1996);
     // cout << df.toString(d) << endl;
@@ -32,7 +29,7 @@ void test_USDateFormatter() {
 }
 
 void test_BGDateFormatter() {
-    std::unique_ptr<DateFormatter> df(new BGDateFormatter());
+    std::unique_ptr<DateFormatter> df = DateFormatterFactory::getDateFormatter(Country::BG);
 
     Date d(10, 6, 1996);
     // cout << df.toString(d) << endl;
@@ -55,7 +52,7 @@ void test_BGDateFormatter() {
 }
 
 void test_ISODateFormatter() {
-    std::unique_ptr<DateFormatter> df(new ISODateFormatter());
+    std::unique_ptr<DateFormatter> df = DateFormatterFactory::getDateFormatter(Country::ISO);
 
     Date d(10, 6, 1996);
     // cout << df->toString(d) << endl;
@@ -81,6 +78,15 @@ int main() {
     test_USDateFormatter();
     test_BGDateFormatter();
     test_ISODateFormatter();
+
+    // Device device1("HP", 950, Date(27, 8, 2016), Country::BG);
+    // device1.printOwnFields();
+
+    // Device device2("Lenovo", 1000, Date(27, 8, 2016), Country::US);
+    // device2.printOwnFields();
+
+    // Device device3("Samsung", 1050, Date(27, 8, 2016), Country::ES);
+    // device3.printOwnFields();
 
     return 0;
 }
